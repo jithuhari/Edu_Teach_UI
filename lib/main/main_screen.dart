@@ -22,11 +22,23 @@ class MainScreen extends StatelessWidget {
             child: DashBoardScreen(),
           ),
           Expanded(
-            flex: 2,
-            child: Container(
-              color: Colors.grey.shade200,
-            ),
-          ),
+              flex: 2,
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.alarm,
+                        color: Colors.black,
+                      ),
+                      Image(
+                          width: 50,
+                          height: 50,
+                          image: AssetImage('assets/icons/profile_pic.png'))
+                    ],
+                  )
+                ],
+              )),
         ],
       )),
     );
