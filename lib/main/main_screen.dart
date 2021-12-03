@@ -1,8 +1,11 @@
+import 'package:eduteach_ui_test/constraints.dart';
 import 'package:eduteach_ui_test/dashboard/dash_board_screen.dart';
+import 'package:eduteach_ui_test/upcoming_and_achievement/upcomimgandachievementscreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
+import 'components/progress_bar_widget.dart';
 import 'components/side_menu.dart';
+import 'components/upcomingSubject.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -22,173 +25,9 @@ class MainScreen extends StatelessWidget {
             child: DashBoardScreen(),
           ),
           Expanded(
-              flex: 2,
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Icon(
-                        Icons.alarm,
-                        color: Colors.black,
-                      ),
-                      Image(
-                          width: 50,
-                          height: 50,
-                          image: AssetImage('assets/images/profile_pic.png'))
-                    ],
-                  ),
-
-                  Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Your Courses',
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-              Row(
-                children: [
-                  Text(
-                    'View All',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Icon(
-                    Icons.arrow_right,
-                    color: Colors.black,
-                  )
-                ],
-              )
-            ],
+            flex: 2,
+            child: UpcomingAndAchievementScreen(),
           ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('UX Principle',style: TextStyle(
-                color: Colors.black
-              ),),
-
-              Container(
-                width: 100,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: Colors.lightBlue
-                ),
-              ),
-              Text('50%',
-              style: TextStyle(
-                color: Colors.black
-              ),
-              )
-            ],
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Branding',style: TextStyle(
-                color: Colors.black
-              ),),
-
-              Container(
-                width: 100,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: Colors.lightGreen
-                ),
-              ),
-              Text('40%',
-              style: TextStyle(
-                color: Colors.black
-              ),
-              )
-            ],
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Design Guide',style: TextStyle(
-                color: Colors.black
-              ),),
-
-              Container(
-                width: 100,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: Colors.yellowAccent
-                ),
-              ),
-              Text('45%',
-              style: TextStyle(
-                color: Colors.black
-              ),
-              )
-            ],
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Productive',style: TextStyle(
-                color: Colors.black
-              ),),
-
-              Container(
-                width: 100,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: Colors.blue
-                ),
-              ),
-              Text('55%',
-              style: TextStyle(
-                color: Colors.black
-              ),
-              )
-            ],
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Your Courses',
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-              Row(
-                children: [
-                  Text(
-                    'View All',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Icon(
-                    Icons.arrow_right,
-                    color: Colors.black,
-                  )
-                ],
-              )
-            ],
-          ),
-
-
-          
-          
-                ],
-              ),
-              ),
         ],
       )),
     );
