@@ -1,5 +1,5 @@
 import 'package:eduteach_ui_test/main/components/progress_bar_widget.dart';
-import 'package:eduteach_ui_test/main/components/upcomingSubject.dart';
+import 'package:eduteach_ui_test/main/components/upcoming_subject.dart';
 import 'package:flutter/material.dart';
 
 import '../constraints.dart';
@@ -16,16 +16,16 @@ class UpcomingAndAchievementScreen extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [
+            children: const [
               Padding(
-                padding: const EdgeInsets.all(defaultPadding),
+                padding: EdgeInsets.all(defaultPadding),
                 child: Icon(
                   Icons.alarm,
                   color: Colors.black,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(defaultPadding),
+                padding: EdgeInsets.all(defaultPadding),
                 child: Image(
                     width: 50,
                     height: 50,
@@ -35,51 +35,50 @@ class UpcomingAndAchievementScreen extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: const [
               Padding(
-                padding: const EdgeInsets.all(8),
+                padding: EdgeInsets.all(8),
                 child: Text(
                   'Latest Results',
+                   maxLines: 1,
+              overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.black),
                 ),
               ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      'View All',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+              Padding(
+                padding: EdgeInsets.all(8),
+                child: Text(
+                  'View All',
+                   maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Icon(
-                      Icons.arrow_right,
-                      color: Colors.black,
-                    ),
-                  )
-                ],
-              )
+                ),
+              ),
+               Expanded(
+                 child: Icon(
+                    Icons.arrow_right,
+                    color: Colors.black,
+                  ),
+               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: const ProgressBarWidget(
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child:  ProgressBarWidget(
               percentage: 50,
               resultName: 'UI Principle',
               progressColor: Colors.blueAccent,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: const ProgressBarWidget(
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: ProgressBarWidget(
               percentage: 55,
               resultName: 'Branding',
               progressColor: Colors.redAccent,
@@ -116,7 +115,7 @@ class UpcomingAndAchievementScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8),
                   child: Row(
-                    children: [
+                    children: const [
                       Text(
                         'View All',
                         style: TextStyle(
