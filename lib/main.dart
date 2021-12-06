@@ -1,9 +1,11 @@
+import 'package:eduteach_ui_test/controllers/menu_controller.dart';
 import 'package:eduteach_ui_test/main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'constraints.dart';
+import 'package:provider/provider.dart';
 
 main() {
+  Provider.debugCheckInvalidValueType = null;
   runApp(MyApp());
 }
 
@@ -18,7 +20,14 @@ class MyApp extends StatelessWidget {
             .apply(bodyColor: Colors.white),
         canvasColor: Colors.white,
       ),
-      home: MainScreen(),
+      home: MultiProvider(
+        providers: [
+          Provider(
+            create: (context) => MenuController(),
+          )
+        ],
+        child: MainScreen(),
+      ),
     );
   }
 }

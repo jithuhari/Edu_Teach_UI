@@ -1,8 +1,9 @@
 import 'package:eduteach_ui_test/constraints.dart';
+import 'package:eduteach_ui_test/controllers/menu_controller.dart';
 import 'package:eduteach_ui_test/responsive.dart';
 import 'package:eduteach_ui_test/upcoming_and_achievement/upcomimg_achievement_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/src/provider.dart';
 
 import 'components/card_widget.dart';
 import 'components/text_field_widget.dart';
@@ -20,7 +21,22 @@ class DashBoardScreen extends StatelessWidget {
         color: Colors.grey.shade300,
         child: Column(
           children: [
-            TextFieldWidget(),
+            Row(
+              children: [
+                SizedBox(
+                  width: 10,
+                ),
+                if (!Responsive.isDesktop(context))
+                  IconButton(
+                    onPressed: context.read<MenuController>().controlMenu,
+                    icon: const Icon(
+                      Icons.menu,
+                      color: Colors.black,
+                    ),
+                  ),
+                Expanded(child: TextFieldWidget()),
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.all(defaultPadding),
               child: Stack(
@@ -35,7 +51,6 @@ class DashBoardScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(
-                          
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -43,7 +58,7 @@ class DashBoardScreen extends StatelessWidget {
                                 padding: const EdgeInsets.all(defaultPadding),
                                 child: Text(
                                   'Welcome , Jhony Vino',
-                                   //maxLines: 1,
+                                  //maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       letterSpacing: 2,
@@ -54,10 +69,9 @@ class DashBoardScreen extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.all(defaultPadding),
                                 child: Text(
-                                    'Get Organized With your courses .Keep going for reach your goal.and unlock your achievement.',
-                                     
-                                overflow: TextOverflow.visible,
-                                    ),
+                                  'Get Organized With your courses .Keep going for reach your goal.and unlock your achievement.',
+                                  overflow: TextOverflow.visible,
+                                ),
                               )
                             ],
                           ),
@@ -108,38 +122,37 @@ class DashBoardScreen extends StatelessWidget {
                 )
               ],
             ),
-            if(Responsive.isMobile(context))
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: const [
-                  CardWidget(
-                    authorName: 'Antony R',
-                    color: Colors.redAccent,
-                    courseName: 'Visual Design',
-                    noOfLesson: 25,
-                    svg: 'assets/icons/doc_file.svg',
-                  ),
-                  CardWidget(
-                    authorName: 'Hanna P',
-                    color: Colors.blueAccent,
-                    courseName: 'Designing',
-                    noOfLesson: 55,
-                    svg: 'assets/icons/excle_file.svg',
-                  ),
-                  CardWidget(
-                    authorName: 'Ravi S',
-                    color: Colors.greenAccent,
-                    courseName: 'Flutter',
-                    noOfLesson: 10,
-                    svg: 'assets/icons/Figma_file.svg',
-                  ),
-                ],
+            if (Responsive.isMobile(context))
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: const [
+                    CardWidget(
+                      authorName: 'Antony R',
+                      color: Colors.redAccent,
+                      courseName: 'Visual Design',
+                      noOfLesson: 25,
+                      svg: 'assets/icons/doc_file.svg',
+                    ),
+                    CardWidget(
+                      authorName: 'Hanna P',
+                      color: Colors.blueAccent,
+                      courseName: 'Designing',
+                      noOfLesson: 55,
+                      svg: 'assets/icons/excle_file.svg',
+                    ),
+                    CardWidget(
+                      authorName: 'Ravi S',
+                      color: Colors.greenAccent,
+                      courseName: 'Flutter',
+                      noOfLesson: 10,
+                      svg: 'assets/icons/Figma_file.svg',
+                    ),
+                  ],
+                ),
               ),
-            ),
-
-            if(!Responsive.isMobile(context))
-            Row(
+            if (!Responsive.isMobile(context))
+              Row(
                 children: const [
                   Expanded(
                     child: CardWidget(
@@ -170,7 +183,6 @@ class DashBoardScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -255,9 +267,7 @@ class DashBoardScreen extends StatelessWidget {
                 ],
               ),
             ),
-
-            if(Responsive.isMobile(context))
-          UpcomingAndAchievementScreen(),
+            if (Responsive.isMobile(context)) UpcomingAndAchievementScreen(),
           ],
         ),
       ),
@@ -277,9 +287,7 @@ class VerticalLineName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    
-    Row(
+    return Row(
       children: [
         CircleAvatar(
           backgroundColor: circleColor,
@@ -290,11 +298,9 @@ class VerticalLineName extends StatelessWidget {
         ),
         Text(
           name,
-           maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-          style: TextStyle(color: Colors.black,
-          fontSize: 12
-          ),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(color: Colors.black, fontSize: 12),
         )
       ],
     );
