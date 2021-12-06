@@ -247,7 +247,7 @@ class DashBoardScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
+                children: [
                   VerticalLineName(
                     circleColor: Colors.blue,
                     name: 'UI UX Design',
@@ -287,22 +287,26 @@ class VerticalLineName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CircleAvatar(
-          backgroundColor: circleColor,
-          radius: 10,
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        Text(
-          name,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(color: Colors.black, fontSize: 12),
-        )
-      ],
+    return Expanded(
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundColor: circleColor,
+            radius: 7,
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: Text(
+              name,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(color: Colors.black, fontSize: 12),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
